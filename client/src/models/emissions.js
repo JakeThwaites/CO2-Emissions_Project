@@ -11,12 +11,13 @@ Emissions.prototype.bindEvents = function () {
     const transport = this.calculateTransportEmissions(event.detail);
     const diet = this.calculateEmissionsByType(event.detail, "Diet") * 7;
     const household = this.calculateEmissionsByType(event.detail, "Household");
+    console.log(event.detail);
     const totalEmissions = transport + diet + household;
 
     const arrayOfEmissions = [transport, diet, household, totalEmissions];
 
     console.log(arrayOfEmissions);
-    this.postEmissions(arrayOfEmissions);
+    this.postEmissions(event.detail);
   })
 };
 
@@ -51,12 +52,16 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
   return emissions
 };
 
-Emissions.prototype.postEmissions = function (emission) {
-  this.request.post(emission)
-    .then((emissions) => {
-      PubSub.publish('Emissions:data-loaded', emissions);
-    })
-    .catch(console.error);
-};
+Emissions.prototype.postEmissions = function (emissions) {
+  for (emission of emissions) {
+    this.request.post(emission)
+      .then((emissions) => {
+        PubSub.publish('Emissions:data-loaded', emissions);
+      })
+      .catch(console.error);
+  };
+  }
+
+
 
 module.exports = Emissions;
