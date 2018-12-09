@@ -6,86 +6,9 @@
     <meta charset="utf-8">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <title>Your CO2 Emissions</title>
-    <style>
-    body {
-      background: #f8f8f8;
-    }
-      .slider {
-        width:300 px;
-        overflow: hidden;
-      }
-      .slide input {
-        appearance: none;
-        -webkit-appearance: none;
-        width:300px;
-        height: 6px;
-        border-radius: 2px;
-        border: 1px solid #ddd;
-        outline: none;
-        box-shadow: 0 1px 1px #fff, inset 0 1px 1px #ddd;
-      }
-      . slider input::-webkit-slider-thumb {
-        appearance: none;
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 50px;
-        background-color: #f1f1f1;
-        border: 1px solid #ddd;
-        box-shadow: 0 0 2px #999;
-        position: relative;
-      }
 
-      . slider input::-webkit-slider-thumb:before {
-        content: '';
-        height: 5px;
-        position: absolute;
-        width: 300px;
-        background-color: green;
-        right: 20px;
-        top: 6px;
-      }
-
-    </style>
   </head>
   <body>
-    <h2>Enter your details</h2>
-    <div class="form-view">
-      <form id="form" method="post">
-        <div class="form-input">
-          <label for="userTransport">Car</label>
-          <input type="text" name="userCar" value="">
-        </div>
-        <div class="form-input">
-          <label for="userTransport">Aeroplane</label>
-          <input type="text" name="userAeroplane" value="">
-        </div>
-        <div class="form-input">
-          <label for="userTransport">Bus</label>
-          <input type="text" name="userBus" value="">
-        </div>
-
-        <div class="form-input">
-          <label for="userDiet">Which of the following best describes your diet?</label>
-          <select class="dietDropdown" name="userDiet">
-            <option value="7.19">High Meat-Eater</option>
-            <option value="5.63">Medium Meat-Eater</option>
-            <option value="4.67">Low Meat-Eater</option>
-            <option value="3.91">Fish Eater</option>
-            <option value="3.81">Vegetarian</option>
-            <option value="2.89">Vegan</option>
-          </select>
-        </div>
-
-        <div class="form-input">
-          <label for="userHousehold">Household</label>
-          <input type="text" name="userHousehold" value="">
-        </div>
-
-        <input type="submit" value="Submit" id="save">
-
-      </form>
-    </div>
 
 <div class="grid">
   <div class="title">Title</div>
@@ -94,14 +17,48 @@
   <h2>Enter your details</h2>
   <div class="sidebar">
     <form class="form-inline" id="form" method="post">
-      <div class="slider">
-        <label for="userTransport">Transport:</label>
-        <input type="range" min="0" max="100" step="1" value="0">
+
+      <div class="transport-info">
+
+      </div>
+        <h3>Transport</h3>
+        <br>
+        <div class="form-input">
+          <div class="slider">
+            <label for="userTransport">Car</label>
+            <input type="range" name="userCar" min="0" max="100" step="1" value="">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-input">
+          <div class="slider">
+            <label for="userTransport">Aeroplane</label>
+            <input type="range" name="userAeroplane" min="0" max="100" step="1" value="">
+          </div>
+        </div>
+
+        <br>
+
+        <div class="form-input">
+          <div class="slider">
+            <label for="userTransport">Bus</label>
+            <input type="range" name="userBus" min="0" max="100" step="1" value="">
+          </div>
+        </div>
       </div>
 
       <div class="form-input">
-        <label for="userDiet">Diet:</label>
-        <input type="text" name="userDiet" value="">
+        <label for="userDiet">Which of the following best describes your diet?</label>
+        <select class="dietDropdown" name="userDiet">
+          <option value="7.19">High Meat-Eater</option>
+          <option value="5.63">Medium Meat-Eater</option>
+          <option value="4.67">Low Meat-Eater</option>
+          <option value="3.91">Fish Eater</option>
+          <option value="3.81">Vegetarian</option>
+          <option value="2.89">Vegan</option>
+        </select>
       </div>
 
       <div class="form-input">
@@ -109,65 +66,65 @@
         <input type="text" name="userHousehold" value="">
       </div>
 
-      <button type="submit" id="save">Submit</button>
+      <button type="Submit" id="save">Submit</button>
 
     </form>
   </div>
-  <div class="content">Content</div>
+  <div class="content" id="container" style="width:50%; height:400px;">
+      <script>
+
+      Highcharts.chart('container', {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Your co2 Emissions'
+        },
+        subtitle: {
+          text: ''
+        },
+      xAxis: {
+        categories: [
+                      'Transport',
+                      'Diet',
+                      'Household'
+                    ],
+        crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+          text: 'co2 (kg)'
+      }
+  },
+  tooltip: {
+      // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y:.1f} kg</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+  },
+  plotOptions: {
+      column: {
+          pointPadding: 0.2,
+          borderWidth: 0
+      }
+  },
+  series: [{
+      name: 'All Categories',
+      data: []
+      }]
+  });
+    </script>
+
+    </div>
+
   <div class="footer">Footer</div>
 </div>
 
 
     <div class="info-view">
-      <div id="container" style="width:50%; height:400px;">
-        <script>
-
-        Highcharts.chart('container', {
-          chart: {
-            type: 'column'
-          },
-          title: {
-            text: 'Your co2 Emissions'
-          },
-          subtitle: {
-            text: ''
-          },
-        xAxis: {
-          categories: [
-                        'Transport',
-                        'Diet',
-                        'Household'
-                      ],
-          crosshair: true
-      },
-      yAxis: {
-        min: 0,
-        title: {
-            text: 'co2 (kg)'
-        }
-    },
-    tooltip: {
-        // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'All Categories',
-        data: [49.9, 71.5, 106.4]
-        }]
-    });
-      </script>
-
-      </div>
 
     </div>
   </body>
