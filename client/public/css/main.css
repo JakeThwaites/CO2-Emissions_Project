@@ -76,11 +76,11 @@
 }
 
 .grid div:nth-child(even) {
-  background-color: red;
+  background-color: brown;
 }
 
 .grid div:nth-child(odd) {
-  background-color: green;
+  background-color: grey;
 }
 
 @media screen and (min-width: 736px) {
