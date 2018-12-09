@@ -3,15 +3,26 @@ db.dropDatabase();
 
 db.emissions.insertMany([
   {
-    name: "Transport",
+    type: "Transport",
+    name: "Car",
     emissions: 20
   },
   {
-    name: "Diet",
+    type: "Transport",
+    name: "Aeroplane",
+    emissions: 20
+  },
+  {
+    type: "Transport",
+    name: "Bus",
+    emissions: 20
+  },
+  {
+    type: "Diet",
     emissions: 10
   },
   {
-    name: "Household",
+    type: "Household",
     emissions: 15
   }
 ]);
