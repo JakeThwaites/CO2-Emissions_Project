@@ -2,7 +2,8 @@ const PubSub = require('../helpers/pub_sub.js');
 const RequestHelper = require('../helpers/request_helper.js');
 
 const Emissions = function () {
-
+  this.url = 'http://localhost:3000/api/emissions';
+  this.request = new RequestHelper(this.url);
 };
 
 Emissions.prototype.bindEvents = function () {
@@ -12,10 +13,10 @@ Emissions.prototype.bindEvents = function () {
     const household = this.calculateEmissionsByType(event.detail, "Household");
     const totalEmissions = transport + diet + household;
 
-    console.log("Tranport emissions:", transport);
-    console.log("Diet emissions", diet);
-    console.log("Household emissions:", household);
-    console.log("Total emissions:", totalEmissions);
+    const arrayOfEmissions = [transport, diet, household, totalEmissions];
+
+    console.log(arrayOfEmissions);
+    this.postEmissions(arrayOfEmissions);
   })
 };
 
@@ -48,6 +49,14 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
   })
 
   return emissions
+};
+
+Emissions.prototype.postEmissions = function (emission) {
+  this.request.post(emission)
+    .then((emissions) => {
+      PubSub.publish('Emissions:data-loaded', emissions);
+    })
+    .catch(console.error);
 };
 
 module.exports = Emissions;
