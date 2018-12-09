@@ -14,7 +14,6 @@ EmissionFormView.prototype.bindEvents = function () {
 EmissionFormView.prototype.handleSubmit = function (event) {
   event.preventDefault();
   const newEmission = this.createEmission(event.target);
-  console.log(newEmission);
   PubSub.publish("Emission:emissions-submitted", newEmission);
 
   event.target.reset();

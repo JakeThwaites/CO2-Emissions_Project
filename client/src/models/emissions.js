@@ -9,15 +9,12 @@ const Emissions = function () {
 Emissions.prototype.bindEvents = function () {
   PubSub.subscribe("Emission:emissions-submitted", (event) => {
     const transport = this.calculateTransportEmissions(event.detail);
-    const diet = this.calculateEmissionsByType(event.detail, "Diet") * 7;
+    const diet = this.calculateEmissionsByType(event.detail, "Diet");
     const household = this.calculateEmissionsByType(event.detail, "Household");
-    console.log(event.detail);
-    const totalEmissions = transport + diet + household;
 
-    const arrayOfEmissions = [transport, diet, household, totalEmissions];
-
+    const arrayOfEmissions = [transport, diet, household];
     console.log(arrayOfEmissions);
-    this.postEmissions(event.detail);
+    this.postEmissions(arrayOfEmissions);
   })
 };
 
@@ -28,7 +25,8 @@ Emissions.prototype.calculateEmissionsByType = function (data, type) {
     return acc + parseInt(item.value);
   }, 0)
 
-  return totalEmissions;
+  const object = {type: type, value: totalEmissions};
+  return object;
 };
 
 Emissions.prototype.calculateTransportEmissions = function (data) {
@@ -49,7 +47,9 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
     }
   })
 
-  return emissions
+  const object = {type: "Transport", value: emissions};
+
+  return object
 };
 
 Emissions.prototype.postEmissions = function (emissions) {
