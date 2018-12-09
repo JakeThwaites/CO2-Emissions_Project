@@ -20,22 +20,35 @@ EmissionFormView.prototype.handleSubmit = function (event) {
 };
 
 EmissionFormView.prototype.createEmission = function (form) {
-  const newTransport = {
-    name: "Transport",
-    value: form.userTransport.value
-  }
+  const newCar = {
+    type: "Transport",
+    name: "Car",
+    value: form.userCar.value
+  };
+
+  const newAeroplane = {
+    type: "Transport",
+    name: "Aeroplane",
+    value: form.userAeroplane.value
+  };
+
+  const newBus = {
+    type: "Transport",
+    name: "Bus",
+    value: form.userBus.value
+  };
 
   const newDiet = {
-    name: "Diet",
+    type: "Diet",
     value: form.userDiet.value
   };
 
   const newHousehold = {
-    name: "Household",
+    type: "Household",
     value: form.userHousehold.value
   };
 
-  const allEmissions = [newTransport, newDiet, newHousehold];
+  const allEmissions = [newCar, newAeroplane, newBus, newDiet, newHousehold];
 
   return allEmissions;
 };
