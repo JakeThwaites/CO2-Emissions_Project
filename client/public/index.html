@@ -2,29 +2,106 @@
 <html lang="en" dir="ltr">
   <head>
       <script src="/js/bundle.js"></script>
+      <link rel="stylesheet" href="/css/main.css">
     <meta charset="utf-8">
     <title>Your CO2 Emissions</title>
+    <style>
+    body {
+      background: #f8f8f8;
+    }
+      .slider {
+        width:300 px;
+        overflow: hidden;
+      }
+      .slide input {
+        appearance: none;
+        -webkit-appearance: none;
+        width:300px;
+        height: 6px;
+        border-radius: 2px;
+        border: 1px solid #ddd;
+        outline: none;
+        box-shadow: 0 1px 1px #fff, inset 0 1px 1px #ddd;
+      }
+      . slider input::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 2px #999;
+        position: relative;
+      }
+
+      . slider input::-webkit-slider-thumb:before {
+        content: '';
+        height: 5px;
+        position: absolute;
+        width: 300px;
+        background-color: green;
+        right: 20px;
+        top: 6px;
+      }
+
+    </style>
   </head>
   <body>
+
+<div class="grid">
+  <div class="title">Title</div>
+  <div class="header">Header</div>
+  <div class="sidebar">Sidebar</div>
+  <h2>Enter your details</h2>
+  <div class="sidebar">
+    <form class="form-inline" id="form" method="post">
+      <div class="slider">
+        <label for="userTransport">Transport:</label>
+        <input type="range" min="0" max="100" step="1" value="0">
+      </div>
+
+      <div class="form-input">
+        <label for="userDiet">Diet:</label>
+        <input type="text" name="userDiet" value="">
+      </div>
+
+      <div class="form-input">
+        <label for="userHousehold">Household:</label>
+        <input type="text" name="userHousehold" value="">
+      </div>
+
+      <button type="submit" id="save">Submit</button>
+
+    </form>
+  </div>
+  <div class="content">Content</div>
+  <div class="footer">Footer</div>
+</div>
+
+    <div class="cdt-notification">
+    <span class="message">Notification/Alert message here</span>
+    <span class="action">action</span>
+</div>
     <h2>Enter your details</h2>
     <div class="form-view">
-      <form id="form" method="post">
-        <div class="form-input">
-          <label for="userTransport">Transport</label>
-          <input type="text" name="userTransport" value="">
+      <form class="form-inline" id="form" method="post">
+        <div class="slider">
+          <label for="userTransport">Transport:</label>
+          <input type="range" min="0" max="100" step="1" value="0">
         </div>
 
         <div class="form-input">
-          <label for="userDiet">Diet</label>
+          <label for="userDiet">Diet:</label>
           <input type="text" name="userDiet" value="">
         </div>
 
         <div class="form-input">
-          <label for="userHousehold">Household</label>
+          <label for="userHousehold">Household:</label>
           <input type="text" name="userHousehold" value="">
         </div>
 
-        <input type="submit" value="Submit" id="save">
+        <button type="submit" id="save">Submit</button>
 
       </form>
     </div>
