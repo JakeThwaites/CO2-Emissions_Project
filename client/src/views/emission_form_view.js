@@ -48,7 +48,12 @@ EmissionFormView.prototype.createEmission = function (form) {
     value: form.userElectricity.value
   };
 
-  const allEmissions = [newCar, newAeroplane, newBus, newDiet, newElectricity];
+  const newGas = {
+    type: "Household",
+    value: form.userGas.value
+  }
+
+  const allEmissions = [newCar, newAeroplane, newBus, newDiet, newElectricity, newGas];
 
   return allEmissions;
 };
