@@ -13,7 +13,7 @@ Emissions.prototype.bindEvents = function () {
     const household = this.calculateEmissionsByType(event.detail, "Household");
 
     const arrayOfEmissions = [transport, diet, household];
-    PubSub.publish("Emissions:emissions-view", arrayOfEmissions);
+    PubSub.publish("Emissions:data-loaded", arrayOfEmissions);
     this.postEmissions(arrayOfEmissions);
   })
 };
@@ -64,7 +64,7 @@ Emissions.prototype.postEmissions = function (emissions) {
   for (emission of emissions) {
     this.request.post(emission)
       .then((emissions) => {
-        PubSub.publish('Emissions:data-loaded', emissions);
+        // PubSub.publish('Emissions:data-loaded', emissions);
       })
       .catch(console.error);
   };
