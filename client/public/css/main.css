@@ -96,6 +96,11 @@
   }
 }
 
+<<<<<<< HEAD
+h1 {
+  text-align: : center;
+}
+=======
 body {
   background: #f8f8f8;
 }
@@ -134,3 +139,4 @@ body {
     right: 20px;
     top: 6px;
   } */
+>>>>>>> 4f744429ba79e5e0a5c50c56f26cd1db9937f7d9
