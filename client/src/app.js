@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emission = new Emission();
   emission.bindEvents();
 
-  const graphContainer = document.querySelector('#graph-container');
+  const graphContainer = document.querySelector('#outer-container');
   const emissionView = new EmissionView(graphContainer);
   emissionView.bindEvents();
 
