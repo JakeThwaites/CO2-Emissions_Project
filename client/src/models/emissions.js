@@ -50,10 +50,6 @@ Emissions.prototype.handleUpdate = function (updatedEmission) {
 };
 
 Emissions.prototype.bindEvents = function () {
-  // PubSub.subscribe("Emission:emissions-submitted", (event) => {
-  //   const transport = this.calculateTransportEmissions(event.detail);
-  //   const diet = this.calculateEmissionsByType(event.detail, "Diet");
-  //   const household = this.calculateEmissionsByType(event.detail, "Household");
     PubSub.subscribe("EmissionFormView:emissions-updated", (event) => {
       this.handleUpdate(event.detail);
       const transport = this.calculateTransportEmissions(this.emissions);
