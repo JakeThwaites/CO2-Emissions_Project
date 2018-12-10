@@ -6,24 +6,43 @@ const EmissionFormView = function (form) {
 };
 
 EmissionFormView.prototype.bindEvents = function () {
-  this.form.addEventListener('submit', (event) => {
+  PubSub.subscribe("Emission:form-item-changed", (event) => {
     this.handleSubmit(event);
+  });
+  const slider = document.querySelector('.slider');
+  slider.addEventListener('change', (event) => {
+    console.log(event);
+    const message = { type: event.target.id,
+                      value: event.target.value};
+    PubSub.publish("Emission:form-item-changed", message );
   });
 };
 
 EmissionFormView.prototype.handleSubmit = function (event) {
   event.preventDefault();
-  const newEmission = this.createEmission(event.target);
+  const newEmission = this.createEmissions(event.target);
   PubSub.publish("Emission:emissions-submitted", newEmission);
+  console.log(event);
 
   // event.target.reset();
 };
 
-EmissionFormView.prototype.createEmission = function (form) {
+EmissionFormView.prototype.testSubmit = function (event) {
+  console.log(event);
+  event.preventDefault();
+  const newEmission = {
+    type: event.target.name,
+      value: event.target.value
+  };
+
+  PubSub.publish("Emission:emissions-submitted", newEmission);
+};
+
+EmissionFormView.prototype.createEmissions = function (form) {
   const newCar = {
     type: "Transport",
     name: "Car",
-    value: form.userCar.value
+    value: form.Transport.value
   };
 
   const newAeroplane = {
