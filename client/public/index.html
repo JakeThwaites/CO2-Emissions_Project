@@ -53,6 +53,7 @@
         </div>
       </div>
 
+      <h3>Diet</h3>
       <div class="form-input">
         <label for="userDiet">Which of the following best describes your diet?</label>
         <select class="dietDropdown" name="userDiet">
@@ -65,6 +66,7 @@
         </select>
       </div>
 
+      <h3>Household</h3>
       <div class="form-input">
         <label for="userHousehold">Household:</label>
         <input type="text" name="userHousehold" value="">
@@ -91,6 +93,56 @@
 
 
     <div class="info-view">
+      <div id="container" style="width:50%; height:400px;">
+        <script>
+
+        Highcharts.chart('container', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'Your co2 Emissions'
+          },
+          subtitle: {
+            text: ''
+          },
+        xAxis: {
+          categories: [
+                        'Transport',
+                        'Diet',
+                        'Household'
+                      ],
+          crosshair: true
+      },
+      yAxis: {
+        min: 0,
+        title: {
+            text: 'co2 (kg)'
+        }
+    },
+    tooltip: {
+        // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} kg</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'All Categories',
+        data: []
+        }]
+
+    });
+      </script>
+
+      </div>
 
     </div>
   </body>
