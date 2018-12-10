@@ -18,41 +18,26 @@
   <div class="header">
     <p>maybe icons to be clicked</p>
   </div>
-  <div class="sidebar">Sidebar</div>
-  <div class="sidebar">
+  <div class="sidebar" id="form-wrapper">
     <form class="form-inline" id="form" method="post">
-
       <div class="transport-info">
-
-      </div>
         <h3>Transport</h3>
-        <br>
-        <div class="form-input">
-          <div class="slider">
+<br>
+        <div class="slider">
             <label for="userTransport">Car</label>
-            <input type="range" name="userCar" min="0" max="100" step="1" value="">
+            <input type="range" name="userCar" min="0" max="100" step="1" value="0">
           </div>
-        </div>
-
-        <br>
-
-        <div class="form-input">
-          <div class="slider">
+          <br>
+        <div class="slider">
             <label for="userTransport">Aeroplane</label>
-            <input type="range" name="userAeroplane" min="0" max="100" step="1" value="">
+            <input type="range" name="userAeroplane" min="0" max="100" step="1" value="0">
           </div>
-        </div>
-
-        <br>
-
-        <div class="form-input">
-          <div class="slider">
+          <br>
+        <div class="slider">
             <label for="userTransport">Bus</label>
-            <input type="range" name="userBus" min="0" max="100" step="1" value="">
+            <input type="range" name="userBus" min="0" max="100" step="1" value="0">
           </div>
-        </div>
-      </div>
-
+    </div>
       <div class="form-input">
         <label for="userDiet">Which of the following best describes your diet?</label>
         <select class="dietDropdown" name="userDiet">
@@ -86,4 +71,40 @@
 
     </div>
   </body>
+</html>
+
+<form id="regForm" action="/action_page.php">
+  <h1>Fill the Co2 form:</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">Name:
+    <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
+    <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
+  </div>
+  <div class="tab">Contact Info:
+    <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+    <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+  </div>
+  <div class="tab">Birthday:
+    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+    <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+  </div>
+  <div class="tab">Login Info:
+    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+  </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+</form>
+</body>
 </html>

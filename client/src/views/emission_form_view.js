@@ -53,5 +53,4 @@ EmissionFormView.prototype.createEmission = function (form) {
   return allEmissions;
 };
 
-
 module.exports = EmissionFormView;

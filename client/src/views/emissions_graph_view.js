@@ -1,7 +1,7 @@
 const Highcharts = require('highcharts');
 
-const EmissionsGraphView = function() {
-  this.graph = Highcharts.chart('container', {
+$(function() {
+  Highcharts.setOptions( {
     chart: {
       type: 'column'
     },

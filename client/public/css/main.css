@@ -1,27 +1,26 @@
 
-  /* Style the form - display items horizontally */
-  /* .form-inline {
+  .form-inline {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-  } */
+  }
 
-  /* Add some margins for each label */
-  /* .form-inline label {
+
+  .form-inline label {
     margin: 5px 10px 5px 0;
-  } */
+  }
 
-  /* Style the input fields */
-  /* .form-inline input {
+
+   .form-inline input {
     vertical-align: middle;
     margin: 5px 10px 5px 0;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
-  } */
+  }
 
-  /* Style the submit button */
-  /* .form-inline button {
+
+  .form-inline button {
     padding: 10px 20px;
     background-color: dodgerblue;
     border: 1px solid #ddd;
@@ -30,10 +29,10 @@
 
   .form-inline button:hover {
     background-color: royalblue;
-  } */
+  }
 
-  /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
-  /* @media (max-width: 800px) {
+
+   @media (max-width: 800px) {
     .form-inline input {
       margin: 10px 0;
     }
@@ -46,13 +45,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 50% 1fr;
+  grid-template-rows: 1fr 50% 1fr;
   grid-template-areas:
-  "title title"
-  "header header"
-  "sidebar content"
-  "footer footer";
+  ". title title ."
+  ". header header ."
+  ". sidebar content ."
+  ". footer footer .";
   grid-gap: 10px;
 }
 
@@ -87,7 +86,7 @@
   .grid {
     display: grid;
     grid-template-columns: 1fr 500px 500px 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
     ". title title ."
     ". header header ."
@@ -96,11 +95,14 @@
   }
 }
 
-<<<<<<< HEAD
+.transport-info {
+
+}
+
 h1 {
   text-align: : center;
 }
-=======
+
 body {
   background: #f8f8f8;
 }
@@ -118,7 +120,7 @@ body {
     outline: none;
     box-shadow: 0 1px 1px #fff, inset 0 1px 1px #ddd;
   }
-  . slider input::-webkit-slider-thumb {
+  .slider input::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
     width: 20px;
@@ -130,7 +132,7 @@ body {
     position: relative;
   }
 
-  . slider input::-webkit-slider-thumb:before {
+  .slider input::-webkit-slider-thumb:before {
     content: '';
     height: 5px;
     position: absolute;
@@ -138,5 +140,83 @@ body {
     background-color: green;
     right: 20px;
     top: 6px;
-  } */
->>>>>>> 4f744429ba79e5e0a5c50c56f26cd1db9937f7d9
+  }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
