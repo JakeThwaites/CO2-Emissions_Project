@@ -53,6 +53,14 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
   return object
 };
 
+Emissions.prototype.calculateHouseholdEmissions = function (emissions) {
+  const emissionsOfType = data.filter(item => item.type === "Household")
+
+  const totalEmissions = emissionsOfType.reduce((acc, item) => {
+    return acc + parseInt(item.value);
+  }, 0)
+};
+
 Emissions.prototype.postEmissions = function (emissions) {
   for (emission of emissions) {
     this.request.post(emission)
