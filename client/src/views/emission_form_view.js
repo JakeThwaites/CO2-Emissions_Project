@@ -9,6 +9,12 @@ EmissionFormView.prototype.bindEvents = function () {
   this.form.addEventListener('submit', (event) => {
     this.handleSubmit(event);
   });
+  const inputs = document.querySelectorAll('.input');
+  inputs.forEach((input) => {
+    input.addEventListener('change', (event) => {
+      console.log(event);
+    })
+  })
 };
 
 EmissionFormView.prototype.handleSubmit = function (event) {
@@ -17,6 +23,14 @@ EmissionFormView.prototype.handleSubmit = function (event) {
   PubSub.publish("Emission:emissions-submitted", newEmission);
 
   // event.target.reset();
+};
+
+EmissionFormView.prototype.handleChange = function (event) {
+  event.preventDefault();
+  const newEmission = {
+    type: "",
+    value: event.target.value
+  };
 };
 
 EmissionFormView.prototype.createEmission = function (form) {
