@@ -3,6 +3,7 @@ const RequestHelper = require('../helpers/request_helper.js');
 
 const EmissionFormView = function (form) {
   this.form = form;
+
 };
 
 EmissionFormView.prototype.bindEvents = function () {
@@ -12,9 +13,10 @@ EmissionFormView.prototype.bindEvents = function () {
   const inputs = document.querySelectorAll('.input');
   inputs.forEach((input) => {
     input.addEventListener('change', (event) => {
-      console.log(event);
-    })
-  })
+      const emissionUpdate = this.handleChange(event);
+      PubSub.publish("EmissionFormView:emissions-updated", emissionUpdate)
+    });
+  });
 };
 
 EmissionFormView.prototype.handleSubmit = function (event) {
@@ -26,11 +28,13 @@ EmissionFormView.prototype.handleSubmit = function (event) {
 };
 
 EmissionFormView.prototype.handleChange = function (event) {
-  event.preventDefault();
   const newEmission = {
-    type: "",
+    type: event.target.id,
+    name: event.target.name,
     value: event.target.value
   };
+
+  return newEmission;
 };
 
 EmissionFormView.prototype.createEmission = function (form) {
