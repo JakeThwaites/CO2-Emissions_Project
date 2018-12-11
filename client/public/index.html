@@ -15,15 +15,15 @@
   <form class="form-inline" id="form" method="post">
 
     <h3>Transport</h3>
-    <h4>How many miles per week do you travel?</h4>
+    <h4>How many miles do you travel in the following vehicles?</h4>
 
       <div class="form-input">
-        <label for="transport">Car:</label>
+        <label for="transport">Car (per week):</label>
         <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport').value
         = parseFloat(document.getElementById('transport').value)
         - parseFloat(document.getElementById('transport').step);
         document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" ></span>
-        <input id="transport" class="input" type="range" name="car" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
+        <input id="transport" class="input" type="range" name="car" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
         <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport').value
         = parseFloat(document.getElementById('transport').value)
         + parseFloat(document.getElementById('transport').step);
@@ -34,12 +34,12 @@
       <br>
 
       <div class="form-input">
-        <label for="transport">Aeroplane:</label>
+        <label for="transport">Aeroplane (per year):</label>
         <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport1').value
         = parseFloat(document.getElementById('transport1').value)
         - parseFloat(document.getElementById('transport1').step);
         document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
-        <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
+        <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="1000" step="10" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
         <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport1').value
         = parseFloat(document.getElementById('transport1').value)
         + parseFloat(document.getElementById('transport1').step);
@@ -50,12 +50,12 @@
       <br>
 
       <div class="form-input">
-        <label for="transport">Bus:</label>
+        <label for="transport">Bus (per week):</label>
         <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport2').value
         = parseFloat(document.getElementById('transport2').value)
         - parseFloat(document.getElementById('transport2').step);
         document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
-        <input id="transport2" class="input" type="range" name="bus" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
+        <input id="transport2" class="input" type="range" name="bus" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
         <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport2').value
         = parseFloat(document.getElementById('transport2').value)
         + parseFloat(document.getElementById('transport2').step);
@@ -78,8 +78,6 @@
         <option value="20.23">Vegan</option>
       </select>
     </div>
-
-    <h3>Household</h3>
 
     <h4>Electricity</h4>
     <div class="form-input">
