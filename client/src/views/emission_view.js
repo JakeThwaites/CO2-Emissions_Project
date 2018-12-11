@@ -13,7 +13,9 @@ EmissionView.prototype.bindEvents = function () {
 };
 
 EmissionView.prototype.render = function (emissions) {
+  const yearContainer = document.querySelector('#year-container');
   const graphContainer = document.querySelector('#graph-container');
+
   const chart = new Highcharts.chart(graphContainer, {
     chart: {
       type: 'column',
@@ -55,9 +57,57 @@ EmissionView.prototype.render = function (emissions) {
       name: 'CO2(kg) used per Week',
       data: [{y: emissions[0].value, color: 'blue'}, {y: 97, color: 'red'}, {y: emissions[1].value, color: 'blue'}, {y: 35, color: 'red'}, {y: emissions[2].value, color: 'blue'}, {y: 29, color: 'red'}]
   }]
+
   });
+  const yearGraph = Highcharts.chart(yearContainer, {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Yearly Carbon Emissions'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Transport',
+            y: (emissions[0].value * 52),
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Diet',
+            y: (emissions[1].value * 52)
+        }, {
+            name: 'Household',
+            y: (emissions[2].value * 52)
+        }]
+    }]
+});
+
 
   this.container.appendChild(graphContainer);
+  this.container.appendChild(yearContainer);
 };
 
 module.exports = EmissionView;
+
+// [{y: (emissions[0].value * 52), color: 'blue'}, {y: (97 * 52), color: 'red'}, {y: (emissions[1].value * 52), color: 'blue'}, {y: (35 * 52), color: 'red'}, {y: (emissions[2].value * 52), color: 'blue'}, {y: (29 * 52), color: 'red'}]
