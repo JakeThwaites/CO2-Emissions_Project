@@ -7,7 +7,7 @@ const EmissionView = function(container) {
 };
 
 EmissionView.prototype.bindEvents = function () {
-  PubSub.subscribe("Emissions:emissions-view", (event) => {
+  PubSub.subscribe("Emissions:data-loaded", (event) => {
     this.render(event.detail)
   })
 };
@@ -50,7 +50,7 @@ EmissionView.prototype.render = function (emissions) {
   }
   },
   series: [{
-  name: 'All Categories',
+  name: 'CO2(kg) used per Week',
   data: [emissions[0].value, emissions[1].value, emissions[2].value]
   }]
   });

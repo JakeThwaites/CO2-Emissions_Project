@@ -4,24 +4,61 @@ const RequestHelper = require('../helpers/request_helper.js');
 const Emissions = function () {
   this.url = 'http://localhost:3000/api/emissions';
   this.request = new RequestHelper(this.url);
-  let transport = {type: "Transport", value: 10};
-  let diet = {type: "Diet", value: 10};
-  let household = {type: "Household", value: 10};
+  this.emissions = [
+    {
+      type: "transport",
+      name: "car",
+      value: 0
 
+    },
+     {
+       type: "transport",
+       name: "aeroplane",
+       value: 0
+     },
+     {
+       type: "transport",
+       name: "bus",
+       value: 0
+     },
+     {
+       type: "diet",
+       name: "diet",
+       value: 0
+     },
+     {
+       type: "household",
+       name: "electricity",
+       value: 0
+     },
+     {
+       type: "household",
+       name: "gas",
+       value: 0
+     }
+   ]
+};
+
+Emissions.prototype.handleUpdate = function (updatedEmission) {
+  updatedEmission.value = parseInt(updatedEmission.value);
+
+  this.emissions.forEach((emission) => {
+    if (emission.name === updatedEmission.name) {
+      emission.value = updatedEmission.value;
+    };
+  });
 };
 
 Emissions.prototype.bindEvents = function () {
-  PubSub.subscribe("Emission:form-item-changed", (event) => {
-    if (event.type === 'Transport') {
-      this.transport = this.calculateTransportEmissions(event.value);
-    }else{
-     this.diet = this.calculateEmissionsByType(event.detail, "Diet");
-     this.household = this.calculateEmissionsByType(event.detail, "Household");
-   }
+    PubSub.subscribe("EmissionFormView:emissions-updated", (event) => {
+      this.handleUpdate(event.detail);
+      const transport = this.calculateTransportEmissions(this.emissions);
+      const diet = this.calculateEmissionsByType(this.emissions, "diet");
+      const household = this.calculateEmissionsByType(this.emissions, "household");
 
-    const arrayOfEmissions = [this.transport, this.diet, this.household];
-    PubSub.publish("Emissions:emissions-view", arrayOfEmissions);
-    this.postEmissions(arrayOfEmissions);
+      const arrayOfEmissions = [transport, diet, household];
+      PubSub.publish("Emissions:data-loaded", arrayOfEmissions);
+      this.postEmissions(arrayOfEmissions);
   })
 };
 
@@ -40,27 +77,27 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
   let emissions = 0;
 
   data.forEach(function(item) {
-    if (item.name === "Bus") {
+    if (item.name === "bus") {
       const busEmissions = (parseInt(item.value)) * 55;
       emissions += busEmissions;
     }
-    else if (item.name === "Aeroplane") {
+    else if (item.name === "aeroplane") {
       const aeroplaneEmissions = (parseInt(item.value)) * 160;
       emissions += aeroplaneEmissions;
     }
-    else if (item.name === "Transport") {
+    else if (item.name === "car") {
       const carEmissions = (parseInt(item.value)) * 105;
       emissions += carEmissions;
     }
   })
 
-  const object = {type: "Transport", value: emissions};
+  const object = {type: "transport", value: emissions};
 
   return object
 };
 
 Emissions.prototype.calculateHouseholdEmissions = function (emissions) {
-  const emissionsOfType = data.filter(item => item.type === "Household")
+  const emissionsOfType = data.filter(item => item.type === "household")
 
   const totalEmissions = emissionsOfType.reduce((acc, item) => {
     return acc + parseInt(item.value);
@@ -71,7 +108,7 @@ Emissions.prototype.postEmissions = function (emissions) {
   for (emission of emissions) {
     this.request.post(emission)
       .then((emissions) => {
-        PubSub.publish('Emissions:data-loaded', emissions);
+        // PubSub.publish('Emissions:data-loaded', emissions);
       })
       .catch(console.error);
   };

@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/JakeThwaites/CO2-Emissions_Project#readme",
   "dependencies": {
-    "highcharts": "^6.2.0"
+    "highcharts": "^6.2.0",
+    "webkit": "0.0.0"
   },
   "description": ""
 }
