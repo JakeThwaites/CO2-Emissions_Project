@@ -26,7 +26,7 @@ EmissionView.prototype.render = function (emissions) {
       text: ''
     },
   xAxis: {
-    categories: ["Transport", "Diet", "Household"],
+    categories: ["Transport", "Transport Average", "Diet", "Diet Average", "Household", "Household Average"],
     crosshair: true
   },
   yAxis: {
@@ -51,7 +51,7 @@ EmissionView.prototype.render = function (emissions) {
   },
   series: [{
   name: 'CO2(kg) used per Week',
-  data: [emissions[0].value, emissions[1].value, emissions[2].value]
+  data: [emissions[0].value, 97, emissions[1].value, 139, emissions[2].value, 29]
   }]
   });
   this.container.appendChild(graphContainer);
