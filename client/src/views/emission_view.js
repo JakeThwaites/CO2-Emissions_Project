@@ -16,29 +16,81 @@ EmissionView.prototype.bindEvents = function () {
 
 
 EmissionView.prototype.renderDropDown = function (data) {
+
   const container = document.querySelector('#drop-down-container');
+  container.innerHTML = "";
   const dropDown = document.createElement('select');
   const dropDownOption1 = document.createElement('option');
   const dropDownOption2 = document.createElement('option');
-  dropDownOption1.textContent = "Yearly Emissions";
-  dropDownOption2.textContent = "Monthly Emissions";
+  const dropDownOption3 = document.createElement('option');
+  dropDownOption1.textContent = "Please Select View";
+  dropDownOption2.textContent = "Yearly Emissions";
+  dropDownOption3.textContent = "Monthly Emissions";
   dropDown.appendChild(dropDownOption1);
   dropDown.appendChild(dropDownOption2);
+  dropDown.appendChild(dropDownOption3);
   container.appendChild(dropDown);
   container.addEventListener('change', (event) => {
+    console.log(event.target.value);
     if (event.target.value === "Monthly Emissions") {
-      this.renderYearGraph(data)
+      return this.renderMonthGraph(data)
     } else {
-      this.render(data)
+      return this.renderYearGraph(data)
+
     }
   })
 };
 
-EmissionView.prototype.bindEventGraphs = function () {
-  PubSub.subscribe("Emissions:data-loaded", (event) => {
-
-  })
+EmissionView.prototype.renderMonthGraph = function (emissions) {
+  const monthContainer = document.querySelector('#graph-container');
+const monthGraph = Highcharts.chart(monthContainer, {
+  chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+  },
+  title: {
+      text: 'Yearly Carbon Emissions'
+  },
+  tooltip: {
+      pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
+  },
+  plotOptions: {
+      pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+              enabled: true,
+              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+              style: {
+                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+              }
+          }
+      }
+  },
+  series: [{
+      name: 'Brands',
+      colorByPoint: true,
+      data: [{
+          name: 'Transport',
+          y: (emissions[0].value * 52 / 12),
+          sliced: true,
+          selected: true
+      }, {
+          name: 'Diet',
+          y: (emissions[1].value * 52 / 12)
+      }, {
+          name: 'Household',
+          y: (emissions[2].value * 52 / 12)
+      }]
+  }]
+});
+  this.container.innerHTML = "";
+  this.container.appendChild(monthContainer);
 };
+
+
 
 EmissionView.prototype.renderYearGraph = function (emissions) {
   const yearContainer = document.querySelector('#graph-container');
