@@ -55,7 +55,7 @@
         = parseFloat(document.getElementById('transport2').value)
         - parseFloat(document.getElementById('transport2').step);
         document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
-        <input id="transport2" class="input" type="range" name="bus" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
+        <input id="transport2" class="input" type="range" name="bus" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
         <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport2').value
         = parseFloat(document.getElementById('transport2').value)
         + parseFloat(document.getElementById('transport2').step);
