@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   emissionView.bindEvents();
 
   const emissionsInfoView = new EmissionsInfoView();
-  emissionsInfoView.listenForButtonClick(emission);
-
-
-
-  const url = "http://localhost:3000"
+  emissionsInfoView.listenForDietButton(emission, '#diet-info');
+  emissionsInfoView.listenForTransportButton(emission, '#transport-info');
+  emissionsInfoView.listenForHouseholdButton(emission, '#household-info');
 });
