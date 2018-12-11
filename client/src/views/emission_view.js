@@ -23,21 +23,23 @@ EmissionView.prototype.renderDropDown = function (data) {
   const dropDownOption1 = document.createElement('option');
   const dropDownOption2 = document.createElement('option');
   const dropDownOption3 = document.createElement('option');
+  const dropDownOption4 = document.createElement('option');
   dropDownOption1.textContent = "Please Select View";
   dropDownOption2.textContent = "Yearly Emissions";
   dropDownOption3.textContent = "Monthly Emissions";
+  dropDownOption4.textContent = "Weekly Emissions";
   dropDown.appendChild(dropDownOption1);
   dropDown.appendChild(dropDownOption2);
   dropDown.appendChild(dropDownOption3);
+  dropDown.appendChild(dropDownOption4);
   container.appendChild(dropDown);
   container.addEventListener('change', (event) => {
     console.log(event.target.value);
     if (event.target.value === "Monthly Emissions") {
-      return this.renderMonthGraph(data)
-    } else {
-      return this.renderYearGraph(data)
-
-    }
+      return this.renderMonthGraph(data);
+    } else if (event.target.value === "Yearly Emissions"){
+      return this.renderYearGraph(data);
+    } else return this.render(data);
   })
 };
 
@@ -74,15 +76,15 @@ const monthGraph = Highcharts.chart(monthContainer, {
       colorByPoint: true,
       data: [{
           name: 'Transport',
-          y: (emissions[0].value * 52 / 12),
+          y: (emissions[0].value * 52 / 12), color: 'red',
           sliced: true,
           selected: true
       }, {
           name: 'Diet',
-          y: (emissions[1].value * 52 / 12)
+          y: (emissions[1].value * 52 / 12), color: 'yellow',
       }, {
           name: 'Household',
-          y: (emissions[2].value * 52 / 12)
+          y: (emissions[2].value * 52 / 12), color: 'blue',
       }]
   }]
 });
