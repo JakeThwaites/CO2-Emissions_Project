@@ -8,13 +8,40 @@ const EmissionView = function(container) {
 
 EmissionView.prototype.bindEvents = function () {
   PubSub.subscribe("Emissions:data-loaded", (event) => {
-    this.render(event.detail)
-    this.renderYearGraph(event.detail)
+    this.render(event.detail);
+    this.renderDropDown(event.detail);
+  })
+};
+
+
+
+EmissionView.prototype.renderDropDown = function (data) {
+  const container = document.querySelector('#drop-down-container');
+  const dropDown = document.createElement('select');
+  const dropDownOption1 = document.createElement('option');
+  const dropDownOption2 = document.createElement('option');
+  dropDownOption1.textContent = "Yearly Emissions";
+  dropDownOption2.textContent = "Monthly Emissions";
+  dropDown.appendChild(dropDownOption1);
+  dropDown.appendChild(dropDownOption2);
+  container.appendChild(dropDown);
+  container.addEventListener('change', (event) => {
+    if (event.target.value === "Monthly Emissions") {
+      this.renderYearGraph(data)
+    } else {
+      this.render(data)
+    }
+  })
+};
+
+EmissionView.prototype.bindEventGraphs = function () {
+  PubSub.subscribe("Emissions:data-loaded", (event) => {
+
   })
 };
 
 EmissionView.prototype.renderYearGraph = function (emissions) {
-  const yearContainer = document.querySelector('#year-container');
+  const yearContainer = document.querySelector('#graph-container');
 const yearGraph = Highcharts.chart(yearContainer, {
   chart: {
       plotBackgroundColor: null,
@@ -58,7 +85,7 @@ const yearGraph = Highcharts.chart(yearContainer, {
       }]
   }]
 });
-
+this.container.innerHTML = "";
 this.container.appendChild(yearContainer);
 
 };
@@ -111,6 +138,7 @@ EmissionView.prototype.render = function (emissions) {
 
   });
 
+  this.container.innerHTML = "";
   this.container.appendChild(graphContainer);
 };
 
