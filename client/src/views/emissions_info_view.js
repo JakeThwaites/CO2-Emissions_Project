@@ -4,14 +4,11 @@ const EmissionsInfoView = function () {
 
 };
 
-EmissionsInfoView.prototype.bindEvents = function (emission) {
-  const comparison = emission.calculateTransportEmissions(emission.emissions);
-  this.listenForButtonClick(comparison);
-};
 
 EmissionsInfoView.prototype.listenForButtonClick = function (emission) {
   const button = document.querySelector('#more-info');
   const infoParagraph = this.compareEmissions(emission, "transport")
+  
   button.addEventListener( 'click', (event) => {
     this.createParagraph('.more-info-view', infoParagraph);
   })
@@ -25,9 +22,13 @@ EmissionsInfoView.prototype.listenForButtonClick = function (emission) {
     container.appendChild(newParagraph);
   };
 
-  EmissionsInfoView.prototype.compareEmissions = function () {
-
-  }
+  EmissionsInfoView.prototype.compareEmissions = function (totalEmissions, comparison) {
+    if (totalEmissions > comparison) {
+      return `This is higher than ${comparison}`
+    } else {
+      return `This is lower than ${comparison}`
+    };
+  };
 
 
 module.exports = EmissionsInfoView;

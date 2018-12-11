@@ -51,9 +51,9 @@ Emissions.prototype.handleUpdate = function (updatedEmission) {
 Emissions.prototype.bindEvents = function () {
     PubSub.subscribe("EmissionFormView:emissions-updated", (event) => {
       this.handleUpdate(event.detail);
-      const transport = this.calculateTransportEmissions(this.emissions);
-      const diet = this.calculateEmissionsByType(this.emissions, "diet");
-      const household = this.calculateEmissionsByType(this.emissions, "household");
+      const transport = this.calculateTransportEmissions();
+      const diet = this.calculateEmissionsByType("diet");
+      const household = this.calculateEmissionsByType("household");
 
       const arrayOfEmissions = [transport, diet, household];
       PubSub.publish("Emissions:data-loaded", arrayOfEmissions);
@@ -61,8 +61,8 @@ Emissions.prototype.bindEvents = function () {
   })
 };
 
-Emissions.prototype.calculateEmissionsByType = function (data, type) {
-  const emissionsOfType = data.filter(item => item.type === type)
+Emissions.prototype.calculateEmissionsByType = function (type) {
+  const emissionsOfType = this.emissions.filter(item => item.type === type)
 
   const totalEmissions = emissionsOfType.reduce((acc, item) => {
     return acc + parseInt(item.value);
@@ -72,10 +72,11 @@ Emissions.prototype.calculateEmissionsByType = function (data, type) {
   return object;
 };
 
-Emissions.prototype.calculateTransportEmissions = function (data) {
+Emissions.prototype.calculateTransportEmissions = function () {
   let emissions = 0;
 
-  data.forEach(function(item) {
+  // data
+  this.emissions.forEach(function(item) {
     if (item.name === "bus") {
       const busEmissions = (parseInt(item.value)) * 0.14;
       emissions += busEmissions;
