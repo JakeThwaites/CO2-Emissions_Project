@@ -1,5 +1,4 @@
 const PubSub = require('../helpers/pub_sub.js');
-const EmissionsGraphView = require('./emissions_graph_view.js');
 const Highcharts = require('highcharts');
 
 const EmissionView = function(container) {
@@ -10,8 +9,6 @@ const EmissionView = function(container) {
 EmissionView.prototype.bindEvents = function () {
   PubSub.subscribe("Emissions:data-loaded", (event) => {
     this.render(event.detail);
-    console.log(this.chart);
-    this.findInfoFromGraph('#graph-container');
   })
 };
 
@@ -61,15 +58,5 @@ EmissionView.prototype.render = function (emissions) {
   this.chart = graphContainer;
 };
 
-EmissionView.prototype.findInfoFromGraph = function (chart) {
-  const barChart = document.querySelector(chart);
-  barChart.addEventListener('click', (event) => {
-    console.log(barChart);
-  })
-};
-
-EmissionView.prototype.createEventListeners = function (array) {
-
-};
 
 module.exports = EmissionView;

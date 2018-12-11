@@ -1,6 +1,7 @@
 const EmissionFormView = require('./views/emission_form_view.js');
 const Emission = require('./models/emissions.js');
 const EmissionView = require('./views/emission_view.js');
+const EmissionsInfoView = require('./views/emissions_info_view.js');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,9 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const emissionView = new EmissionView(graphContainer);
   emissionView.bindEvents();
 
+  const dietEmissions = emission.calculateEmissionsByType(emission.emissions, "diet")
+
+  const emissionsInfoView = new EmissionsInfoView(emission);
+  emissionsInfoView.listenForButtonClick(dietEmissions);
+
 
 
   const url = "http://localhost:3000"
 });
-
-// test asdf
