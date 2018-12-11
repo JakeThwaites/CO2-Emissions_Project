@@ -4,11 +4,14 @@ const Highcharts = require('highcharts');
 
 const EmissionView = function(container) {
   this.container = container;
+  this.chart;
 };
 
 EmissionView.prototype.bindEvents = function () {
   PubSub.subscribe("Emissions:data-loaded", (event) => {
-    this.render(event.detail)
+    this.render(event.detail);
+    console.log(this.chart);
+    this.findInfoFromGraph('#graph-container');
   })
 };
 
@@ -36,7 +39,7 @@ EmissionView.prototype.render = function (emissions) {
   }
   },
   tooltip: {
-  // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+  headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
   pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
       '<td style="padding:0"><b>{point.y:.1f} kg</b></td></tr>',
   footerFormat: '</table>',
@@ -55,6 +58,18 @@ EmissionView.prototype.render = function (emissions) {
   }]
   });
   this.container.appendChild(graphContainer);
+  this.chart = graphContainer;
+};
+
+EmissionView.prototype.findInfoFromGraph = function (chart) {
+  const barChart = document.querySelector(chart);
+  barChart.addEventListener('click', (event) => {
+    console.log(barChart);
+  })
+};
+
+EmissionView.prototype.createEventListeners = function (array) {
+
 };
 
 module.exports = EmissionView;
