@@ -15,6 +15,7 @@ EmissionView.prototype.bindEvents = function () {
 EmissionView.prototype.render = function (emissions) {
   const graphContainer = document.querySelector('#graph-container');
   const chart = new Highcharts.chart(graphContainer, {
+    colors: ["#FFFFFF"],
     chart: {
       type: 'column',
       plotBackgroundImage: 'https://data.gov.sg/images/header-environment.jpg'
@@ -26,18 +27,20 @@ EmissionView.prototype.render = function (emissions) {
       text: ''
     },
   xAxis: {
+    color: "#003300",
     categories: ["Transport", "Transport Average", "Diet", "Diet Average", "Household", "Household Average"],
     crosshair: true
   },
   yAxis: {
-  min: 0,
+    color: "#003300",
+    min: 0,
   title: {
       text: 'co2 (kg)'
   }
   },
   tooltip: {
   headerFormat: '<span style="font-size:15px">{point.key}</span><table>',
-  pointFormat: '<tr><td style="color:##FFFFFF";padding:0">{series.name}: </td>' +
+  pointFormat: '<tr><td style="color:series";padding:0">{series.name}: </td>' +
       '<td style="padding:0"><b>{point.y:.1f} kg</b></td></tr>',
   footerFormat: '</table>',
   shared: true,
