@@ -14,13 +14,6 @@ EmissionFormView.prototype.bindEvents = function () {
       PubSub.publish("EmissionFormView:emissions-updated", emissionUpdate)
     });
   });
-  const slider = document.querySelector('.slider');
-  slider.addEventListener('change', (event) => {
-    console.log(event);
-    const message = { type: event.target.id,
-                      value: event.target.value};
-    PubSub.publish("Emission:form-item-changed", message );
-  });
 };
 
 

@@ -9,7 +9,6 @@ const Emissions = function () {
       type: "transport",
       name: "car",
       value: 0
-
     },
      {
        type: "transport",
@@ -78,15 +77,15 @@ Emissions.prototype.calculateTransportEmissions = function (data) {
 
   data.forEach(function(item) {
     if (item.name === "bus") {
-      const busEmissions = (parseInt(item.value)) * 55;
+      const busEmissions = (parseInt(item.value)) * 0.14;
       emissions += busEmissions;
     }
     else if (item.name === "aeroplane") {
-      const aeroplaneEmissions = (parseInt(item.value)) * 160;
+      const aeroplaneEmissions = ((parseInt(item.value)) * 0.143) / 52;
       emissions += aeroplaneEmissions;
     }
     else if (item.name === "car") {
-      const carEmissions = (parseInt(item.value)) * 105;
+      const carEmissions = (parseInt(item.value)) * 0.25;
       emissions += carEmissions;
     }
   })
