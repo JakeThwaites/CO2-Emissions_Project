@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const emissionView = new EmissionView(graphContainer);
   emissionView.bindEvents();
 
-  const dietEmissions = emission.calculateEmissionsByType(emission.emissions, "diet");
-
-  const emissionsInfoView = new EmissionsInfoView(emission);
-  emissionsInfoView.listenForButtonClick(dietEmissions);
+  const emissionsInfoView = new EmissionsInfoView();
+  emissionsInfoView.listenForButtonClick(emission);
 
 
 
