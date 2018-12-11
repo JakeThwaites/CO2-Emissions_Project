@@ -1,6 +1,6 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 1px;
+  padding: 1px;
 }
 
 #page {
@@ -11,19 +11,22 @@
   "head head"
   "nav  main"
   "nav  foot";
-  grid-template-rows:100px 1fr 30px;
-  grid-template-columns: 500px 900px;
+  grid-template-rows:130px 400px 220px;
+  grid-template-columns: 520px 900px;
   grid-gap: 10px;
 }
 
 #page > header {
   grid-area: head;
-  background-color: #C9CDCB;
+  background-color: #EFF0F0;
 }
+
+
 
 #page > nav {
   grid-area: nav;
-  background-color: #E3E3E3;
+  background-color: #F4F4F4;
+  margin: 7px;
 }
 
 #page > main {
@@ -35,14 +38,22 @@
 }
 
 label {
-  font-size: 16px;
+  font-size: 17px;
+  margin: 7px;
 }
 
 h3 {
   font-size: 21px;
+  margin: 7px;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 28px;
   justify-content: center;
+  margin: 7px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 7px;
 }
