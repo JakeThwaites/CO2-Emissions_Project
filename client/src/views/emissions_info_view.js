@@ -4,7 +4,6 @@ const EmissionsInfoView = function () {
 
 };
 
-
 EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance, buttonLink) {
   const dietButton = document.querySelector(buttonLink);
   dietButton.addEventListener( 'click', (event) => {
