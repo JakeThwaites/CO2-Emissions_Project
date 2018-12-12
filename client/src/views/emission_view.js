@@ -35,12 +35,12 @@ EmissionView.prototype.renderInfoButtons = function () {
   container.appendChild(transportButton);
 };
 
-
 EmissionView.prototype.renderDropDown = function (data) {
 
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
   const dropDown = document.createElement('select');
+  container.setAttribute('id', 'chart-dropdown');
   const dropDownOption1 = document.createElement('option');
   const dropDownOption2 = document.createElement('option');
   const dropDownOption3 = document.createElement('option');

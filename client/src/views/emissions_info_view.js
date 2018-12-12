@@ -1,6 +1,5 @@
 const Emissions = require('../models/emissions.js');
 const PubSub = require('../helpers/pub_sub.js');
-
 const EmissionsInfoView = function () {
 
 };
@@ -13,7 +12,6 @@ EmissionsInfoView.prototype.bindEvents = function (emission) {
   })
 };
 
-
 EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
   const dietButton = document.querySelector('#diet-info-button');
   dietButton.addEventListener( 'click', (event) => {
@@ -22,7 +20,6 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
     this.createParagraph('.more-info-view', dietInfoParagraph);
   })
 };
-
   EmissionsInfoView.prototype.listenForTransportButton = function (emissionsInstance) {
     const transportButton = document.querySelector('#transport-info-button');
     transportButton.addEventListener('click', (event) => {
@@ -31,7 +28,6 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
       this.createParagraph('.more-info-view', transportInfoParagraph);
     })
   };
-
   EmissionsInfoView.prototype.listenForHouseholdButton = function (emissionsInstance, buttonLink) {
     const dietButton = document.querySelector('#household-info-button');
     dietButton.addEventListener( 'click', (event) => {
