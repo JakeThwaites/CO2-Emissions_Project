@@ -109,9 +109,9 @@ h4 {
   margin: 7px;
 }
 
-.info-button {
-  padding: 7px;
-  box-shadow: 1px 1px 1px 1px;
-  border-radius: 3px;
+.info-buttons {
+  /* padding: 5px;
+  font-size: 21px;
+  margin: 7px; */
 
 }
