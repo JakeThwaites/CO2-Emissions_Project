@@ -20,12 +20,12 @@
         <form class="form-inline" id="form" method="post">
           <div class="form-input">
             <label for="transport">Car:</label>
-            <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport').value
+            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport').value
             = parseFloat(document.getElementById('transport').value)
             - parseFloat(document.getElementById('transport').step);
             document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" ></span>
             <input id="transport" class="input" type="range" name="car" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
-            <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport').value
+            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport').value
             = parseFloat(document.getElementById('transport').value)
             + parseFloat(document.getElementById('transport').step);
             document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" > -</span>
@@ -34,12 +34,12 @@
           <br>
           <div class="form-input">
             <label for="transport">Aeroplane:</label>
-            <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport1').value
+            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport1').value
             = parseFloat(document.getElementById('transport1').value)
             - parseFloat(document.getElementById('transport1').step);
             document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
             <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
-            <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport1').value
+            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport1').value
             = parseFloat(document.getElementById('transport1').value)
             + parseFloat(document.getElementById('transport1').step);
             document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" > -</span>
@@ -48,12 +48,12 @@
           <br>
           <div class="form-input">
             <label for="transport">Bus:</label>
-            <input type="button" value="-" class="btn btn--action" onclick="document.getElementById('transport2').value
+            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport2').value
             = parseFloat(document.getElementById('transport2').value)
             - parseFloat(document.getElementById('transport2').step);
             document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
             <input id="transport2" class="input" type="range" name="bus" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
-            <input type="button" value="+" class="btn btn--action" onclick="document.getElementById('transport2').value
+            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport2').value
             = parseFloat(document.getElementById('transport2').value)
             + parseFloat(document.getElementById('transport2').step);
             document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" > -</span>

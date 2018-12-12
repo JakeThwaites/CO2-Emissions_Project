@@ -1,6 +1,7 @@
 * {
   margin: 1px;
   padding: 1px;
+  
 }
 
 #page {
@@ -11,14 +12,16 @@
   "head head"
   "nav  main"
   "nav  foot";
-  grid-template-rows:130px 400px 220px;
-  grid-template-columns: 520px 900px;
+  grid-template-rows:130px 410px 220px;
+  grid-template-columns: 520px 890px;
   grid-gap: 10px;
 }
 
 #page > header {
   grid-area: head;
   background-color: #EFF0F0;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
 }
 
 
@@ -27,14 +30,19 @@
   grid-area: nav;
   background-color: #F4F4F4;
   margin: 7px;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
 }
 
 #page > main {
   grid-area: main;
+
 }
 
 #page > footer {
   grid-area: foot;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
 }
 
 label {
