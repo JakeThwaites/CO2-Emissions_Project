@@ -57,7 +57,7 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
     if (totalEmissions.value > comparison) {
       return "Your transport emissions are higher than average. You could consider making more use of public transport and walking where possible. Electric cars can also greatly reduce your CO2 emissions. More information reducing your carbon footprint can be found here: https://cotap.org/reduce-carbon-footprint/"
     } else {
-      return "Your transport emissions are below average. Good job!"
+      return "Your transport emissions are below average. More information on reducing your emissions further can be found here: https://cotap.org/reduce-carbon-footprint/"
     };
   };
 
