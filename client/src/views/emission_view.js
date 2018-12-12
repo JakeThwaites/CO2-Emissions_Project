@@ -34,7 +34,6 @@ EmissionView.prototype.renderDropDown = function (data) {
   dropDown.appendChild(dropDownOption4);
   container.appendChild(dropDown);
   container.addEventListener('change', (event) => {
-    console.log(event.target.value);
     if (event.target.value === "Monthly Emissions") {
       return this.renderMonthGraph(data);
     } else if (event.target.value === "Yearly Emissions"){
@@ -53,7 +52,7 @@ const monthGraph = Highcharts.chart(monthContainer, {
       type: 'pie'
   },
   title: {
-      text: 'Yearly Carbon Emissions'
+      text: 'Monthly Carbon Emissions'
   },
   tooltip: {
       pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
