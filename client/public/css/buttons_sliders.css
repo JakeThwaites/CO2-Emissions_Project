@@ -42,37 +42,31 @@ input[type="range"]:focus::-webkit-slider-thumb{
   cursor:pointer;
   font-family: 'Times New Roman', cursive;
   text-shadow: 0 0 8px white;
+  background-color: #ccc;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px;
+  outline: none;
 }
 
 .slider-button:hover {
   background-color: #2CE90F;
 }
 
-.slider-button {
-  background-color: #ccc;
-  border-radius: 5px;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px;
-}
 
 .information-button {
     border:0px none;
     border-radius: 7%;
-    padding: 1px 10px;
+    padding: 3px 10px;
     color: black;
     cursor:pointer;
     font-family: 'Times New Roman', cursive;
     text-shadow: 0 0 8px white;
+    background-color: #ccc;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px;
+    outline: none;
+    font-size: 13px;
 }
 
 
 .information-button:hover {
   background-color: #2CE90F;
-}
-
-
-
-.information-button {
-  background-color: #ccc;
-  border-radius: 5px;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px;
 }

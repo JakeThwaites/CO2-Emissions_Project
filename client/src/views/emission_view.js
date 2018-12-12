@@ -48,6 +48,7 @@ EmissionView.prototype.renderInfoButtons = function () {
 EmissionView.prototype.renderDropDown = function (data) {
   console.log(data);
 
+
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
   const dropDown = document.createElement('select');

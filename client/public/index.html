@@ -36,12 +36,12 @@
         </div>
         <br>
         <div class="form-input">
-          <label for="transport">Aeroplane (per year):</label>
+          <label for="transport">Plane (per year):</label>
           <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport1').value
           = parseFloat(document.getElementById('transport1').value)
           - parseFloat(document.getElementById('transport1').step);
           document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
-          <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="10000" step="50" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
+          <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="10000" step="50" value="50" onchange="document.getElementById('dsp2').innerHTML=this.value;">
           <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport1').value
           = parseFloat(document.getElementById('transport1').value)
           + parseFloat(document.getElementById('transport1').step);
@@ -110,26 +110,20 @@
     </nav>
     <main>
       <div id="drop-down-container">
-
       </div>
       <div id="outer-container"></div>
-
-      <div class="content" id="graph-container" style="width:80%; height:350px;">
+      <div class="content" id="graph-container" style="width:100%; height:390px;">
       </div>
     </div>
     <br>
   </form>
 </div>
-
 </main>
 <footer>
-
   <div class="info-title">
-
   </div>
   <div class="info-buttons">
   </div>
-
   <div class="more-info-view">
   </div>
 </footer>
