@@ -41,17 +41,21 @@ EmissionView.prototype.renderDropDown = function (data) {
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
   const dropdown = document.createElement('select');
-  const dropdownOption1 = this.createDropdownElement("Please Select View", dropdown);
-  const dropdownOption2 = this.createDropdownElement("Yearly Emissions", dropdown);
-  const dropdownOption3 = this.createDropdownElement("Monthly Emissions", dropdown);
-  const dropdownOption4 = this.createDropdownElement("Weekly Emissions", dropdown);
+  this.createDropdownElement("Please Select View", dropdown, "dropdown-start");
+  this.createDropdownElement("Yearly Emissions", dropdown);
+  this.createDropdownElement("Monthly Emissions", dropdown);
+  this.createDropdownElement("Weekly Emissions", dropdown);
   container.appendChild(dropdown);
+
+  const dropdownStartButton = document.querySelector('#dropdown-start');
+  dropdownStartButton.setAttribute('style', 'display:none');
   this.listenForDropdownChange(container, data);
 
 };
-EmissionView.prototype.createDropdownElement = function (textContent, container) {
+EmissionView.prototype.createDropdownElement = function (textContent, container, id) {
   const dropDownElement = document.createElement('option');
   dropDownElement.textContent = textContent;
+  dropDownElement.setAttribute('id', id)
   container.appendChild(dropDownElement);
 };
 
