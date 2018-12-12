@@ -10,9 +10,30 @@ EmissionView.prototype.bindEvents = function () {
   PubSub.subscribe("Emissions:data-loaded", (event) => {
     this.render(event.detail);
     this.renderDropDown(event.detail);
+    this.renderInfoButtons();
+    PubSub.publish("EmissionView:graph-loaded", event.detail);
   })
 };
 
+EmissionView.prototype.renderInfoButtons = function () {
+  const container = document.querySelector('.info-buttons');
+  const dietButton = document.createElement('button');
+  dietButton.setAttribute('id', "diet-info-button");
+  dietButton.textContent = "Diet";
+
+  const householdButton = document.createElement('button');
+  householdButton.setAttribute('id', "household-info-button");
+  householdButton.textContent = "Household";
+
+  const transportButton = document.createElement('button');
+  transportButton.setAttribute('id', "transport-info-button");
+  transportButton.textContent = "Transport";
+
+  container.innerHTML = "";
+  container.appendChild(dietButton);
+  container.appendChild(householdButton);
+  container.appendChild(transportButton);
+};
 
 
 EmissionView.prototype.renderDropDown = function (data) {

@@ -24,7 +24,7 @@
             = parseFloat(document.getElementById('transport').value)
             - parseFloat(document.getElementById('transport').step);
             document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" ></span>
-            <input id="transport" class="input" type="range" name="car" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
+            <input id="transport" class="input" type="range" name="car" min="0" max="500" step="1" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
             <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport').value
             = parseFloat(document.getElementById('transport').value)
             + parseFloat(document.getElementById('transport').step);
@@ -38,7 +38,7 @@
             = parseFloat(document.getElementById('transport1').value)
             - parseFloat(document.getElementById('transport1').step);
             document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
-            <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
+            <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="10000" step="1" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
             <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport1').value
             = parseFloat(document.getElementById('transport1').value)
             + parseFloat(document.getElementById('transport1').step);
@@ -52,7 +52,7 @@
             = parseFloat(document.getElementById('transport2').value)
             - parseFloat(document.getElementById('transport2').step);
             document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
-            <input id="transport2" class="input" type="range" name="bus" min="0" max="100" step="1" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
+            <input id="transport2" class="input" type="range" name="bus" min="0" max="500" step="1" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
             <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport2').value
             = parseFloat(document.getElementById('transport2').value)
             + parseFloat(document.getElementById('transport2').step);
@@ -125,9 +125,10 @@
 
 </div>
 
-<button id="diet-info" type="button" name"transport-info">Diet</button>
-<button id="transport-info" type="button" name="transport-info">Transport</button>
-<button id="household-info" type="button" name="button">Household</button>
+<div class="info-buttons">
+  
+</div>
+
 
 <div class="more-info-view">
 
