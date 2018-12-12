@@ -1,29 +1,35 @@
 const Emissions = require('../models/emissions.js');
-
+const PubSub = require('../helpers/pub_sub.js');
 const EmissionsInfoView = function () {
 
 };
 
-EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance, buttonLink) {
-  const dietButton = document.querySelector(buttonLink);
+EmissionsInfoView.prototype.bindEvents = function (emission) {
+  PubSub.subscribe('EmissionView:graph-loaded', (event) => {
+    this.listenForDietButton(emission);
+    this.listenForHouseholdButton(emission);
+    this.listenForTransportButton(emission);
+  })
+};
+
+EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
+  const dietButton = document.querySelector('#diet-info-button');
   dietButton.addEventListener( 'click', (event) => {
     const emissions = emissionsInstance.calculateEmissionsByType("diet");
     const dietInfoParagraph = this.dietEmissionsComparison(emissions, 30);
     this.createParagraph('.more-info-view', dietInfoParagraph);
   })
 };
-
-  EmissionsInfoView.prototype.listenForTransportButton = function (emissionsInstance, buttonLink) {
-    const transportButton = document.querySelector(buttonLink);
+  EmissionsInfoView.prototype.listenForTransportButton = function (emissionsInstance) {
+    const transportButton = document.querySelector('#transport-info-button');
     transportButton.addEventListener('click', (event) => {
       const emissions = emissionsInstance.calculateTransportEmissions();
       const transportInfoParagraph = this.transportEmissionsComparison(emissions, 50);
       this.createParagraph('.more-info-view', transportInfoParagraph);
     })
   };
-
   EmissionsInfoView.prototype.listenForHouseholdButton = function (emissionsInstance, buttonLink) {
-    const dietButton = document.querySelector(buttonLink);
+    const dietButton = document.querySelector('#household-info-button');
     dietButton.addEventListener( 'click', (event) => {
       const emissions = emissionsInstance.calculateEmissionsByType("household");
       const householdInfoParagraph = this.householdEmissionsComparison(emissions, 44);

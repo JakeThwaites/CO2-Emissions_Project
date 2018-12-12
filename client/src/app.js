@@ -18,7 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
   emissionView.bindEvents();
 
   const emissionsInfoView = new EmissionsInfoView();
-  emissionsInfoView.listenForDietButton(emission, '#diet-info');
-  emissionsInfoView.listenForTransportButton(emission, '#transport-info');
-  emissionsInfoView.listenForHouseholdButton(emission, '#household-info');
+  emissionsInfoView.bindEvents(emission);
 });

@@ -48,10 +48,6 @@ input[type="range"]:focus::-webkit-slider-thumb{
   background-color: #2CE90F;
 }
 
-.slider-button:hover {
-  background-color: #696969;
-}
-
 .slider-button {
   background-color: #ccc;
   border-radius: 5px;
