@@ -7,15 +7,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <title>Your CO2 Emissions</title>
+  <title>Imprint - Calculate CO2 Emissions</title>
 </head>
 <body>
   <section id="page">
     <header >
-      <h1 align="center">CO2 Calculator</h1></header>
+      <h1 align="center">Imprint</h1></header>
       <nav>
-        <h3>Transport</h3>
         <br>
+        <h3>Transport</h3>
+        <!-- <br> -->
         <h4>How many miles do you travel?</h4>
         <form class="form-inline" id="form" method="post">
           <div class="form-input">
@@ -66,15 +67,16 @@
               <div class="form-input">
                 <label for="diet">Which of the following best describes your diet?</label>
                 <select id="diet" class="input" name="diet">
-                  <option style="display:none" selected>Please Select From Below</option>
-                  <option value="50.33">High Meat-Eater (more than 100g per day)</option>
-                  <option value="39.41">Medium Meat-Eater (50 - 100g per day)</option>
-                  <option value="32.69">Low Meat-Eater (less than 100g per day)</option>
-                  <option value="27.37">Fish Eater</option>
-                  <option value="26.67">Vegetarian</option>
-                  <option value="20.23">Vegan</option>
+                  <option class="dropdown-menu" style="display:none" selected>Please Select From Below</option>
+                  <option class="dropdown-menu" value="50.33">High Meat-Eater (more than 100g per day)</option>
+                  <option class="dropdown-menu" value="39.41">Medium Meat-Eater (50 - 100g per day)</option>
+                  <option class="dropdown-menu" value="32.69">Low Meat-Eater (less than 100g per day)</option>
+                  <option class="dropdown-menu" value="27.37">Fish Eater</option>
+                  <option class="dropdown-menu" value="26.67">Vegetarian</option>
+                  <option class="dropdown-menu" value="20.23">Vegan</option>
                 </select>
               </div>
+          <br>
           <br>
           <h3>Household</h3>
           <br>
@@ -106,6 +108,7 @@
       </nav>
     <main>
       <div id="drop-down-container">
+
       </div>
       <div id="outer-container"></div>
 
