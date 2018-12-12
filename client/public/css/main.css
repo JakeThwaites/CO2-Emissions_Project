@@ -18,7 +18,7 @@
 
 #page > header {
   grid-area: head;
-  background-color: #EFF0F0;
+  background-color: #F4F4F4;
   box-shadow: 1px 1px 3px 4px;
   border-radius: 5px;
 }
@@ -98,8 +98,8 @@ h3 {
 }
 
 h1 {
-  font-family: ;
-  font-size: 28px;
+  font-family: Chalkduster;
+  font-size: 70px;
   justify-content: center;
   margin: 7px;
 }
@@ -107,11 +107,4 @@ h1 {
 h4 {
   font-size: 18px;
   margin: 7px;
-}
-
-.info-buttons {
-  /* padding: 5px;
-  font-size: 21px;
-  margin: 7px; */
-
 }
