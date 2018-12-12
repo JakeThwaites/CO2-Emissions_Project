@@ -33,7 +33,7 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance, b
 
   EmissionsInfoView.prototype.householdEmissionsComparison = function (totalEmissions, comparison) {
     if (totalEmissions.value > comparison) {
-      return "Your household emissions are higher than average. Stop eating meat!"
+      return "Your household emissions are higher than average. You can reduce the CO2 from your household by "
     } else {
       return "Your household emissions are below average. Good job!"
     };
@@ -41,7 +41,7 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance, b
 
   EmissionsInfoView.prototype.dietEmissionsComparison = function (totalEmissions, comparison) {
     if (totalEmissions.value > comparison) {
-      return "Your diet emissions are higher than average. Stop eating meat!"
+      return "Your diet emissions are higher than average. Animal agriculture is responsible for roughly 50% of all man-made emissions. The easiest way to lower your CO2 is to lower the amount of meat and animal products you eat. You can find more information on the impact of animal agriculture on the enivornment here "
     } else {
       return "Your diet emissions are below average. Good job!"
     };

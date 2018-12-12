@@ -14,6 +14,15 @@ EmissionFormView.prototype.bindEvents = function () {
       PubSub.publish("EmissionFormView:emissions-updated", emissionUpdate)
     });
   });
+  const buttons = document.querySelectorAll('.slider-button');
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const emissionButtonUpdate =
+      this.handleChange(event);
+      console.log(emissionButtonUpdate);
+      PubSub.publish("EmissionFormView:emissions-updated", emissionButtonUpdate)
+    });
+  });
 };
 
 
