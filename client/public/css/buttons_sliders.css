@@ -54,12 +54,25 @@ input[type="range"]:focus::-webkit-slider-thumb{
   box-shadow: 0.5px 0.5px 0.5px 0.5px;
 }
 
-.info-buttons {
-  border:0px none;
-  border-radius: 7%;
-  padding: 1px 10px;
-  color: black;
-  cursor:pointer;
-  font-family: 'Times New Roman', cursive;
-  text-shadow: 0 0 8px white;
+.information-button {
+    border:0px none;
+    border-radius: 7%;
+    padding: 1px 10px;
+    color: black;
+    cursor:pointer;
+    font-family: 'Times New Roman', cursive;
+    text-shadow: 0 0 8px white;
+}
+
+
+.information-button:hover {
+  background-color: #2CE90F;
+}
+
+
+
+.information-button {
+  background-color: #ccc;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px;
 }
