@@ -149,8 +149,7 @@ EmissionView.prototype.render = function (emissions) {
 
   const chart = new Highcharts.chart(graphContainer, {
     chart: {
-      type: 'column',
-      plotBackgroundImage: 'https://data.gov.sg/images/header-environment.jpg'
+      type: 'column'
     },
     title: {
       text: 'Your co2 Emissions'
