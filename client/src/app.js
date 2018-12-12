@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const emissionView = new EmissionView(graphContainer);
   emissionView.bindEvents();
 
+  
+
+
+
 
 
   const url = "http://localhost:3000"
