@@ -34,7 +34,7 @@ input[type="range"]:focus::-webkit-slider-thumb{
   background:#1B760D;
 }
 
-.btn {
+.slider-button {
   border:0px none;
   border-radius: 7%;
   padding: 1px 10px;
@@ -44,22 +44,18 @@ input[type="range"]:focus::-webkit-slider-thumb{
   text-shadow: 0 0 8px white;
 }
 
-.btn--danger {
+.slider-button{
   background-color: grey;
 }
 
-.btn--danger:hover {
+.slider-button:hover {
   background-color: #2CE90F;
 }
 
-.btn--action:hover {
+.slider-button:hover {
   background-color: #696969;
 }
 
-.btn--action {
+.slider-button {
   background-color: #ccc;
-}
-
-.btn--wrapper {
-  margin: 0px 0px 10px 0px;
 }

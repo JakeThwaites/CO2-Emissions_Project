@@ -1,3 +1,70 @@
-#form-wrapper {
+* {
+  margin: 1px;
+  padding: 1px;
+  
+}
 
+#page {
+  display: grid;
+  width: 100%;
+  height: 250px;
+  grid-template-areas:
+  "head head"
+  "nav  main"
+  "nav  foot";
+  grid-template-rows:130px 410px 220px;
+  grid-template-columns: 520px 890px;
+  grid-gap: 10px;
+}
+
+#page > header {
+  grid-area: head;
+  background-color: #EFF0F0;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
+}
+
+
+
+#page > nav {
+  grid-area: nav;
+  background-color: #F4F4F4;
+  margin: 7px;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
+}
+
+#page > main {
+  grid-area: main;
+
+}
+
+#page > footer {
+  grid-area: foot;
+  box-shadow: 1px 1px 3px 4px;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 17px;
+  margin: 7px;
+}
+
+h3 {
+  font-size: 21px;
+  margin: 7px;
+}
+
+h1 {
+  font-size: 28px;
+  justify-content: center;
+  margin: 7px;
+}
+
+h4 {
+  font-size: 18px;
+  margin: 7px;
+}
+
+.highcharts-graph {
 }
