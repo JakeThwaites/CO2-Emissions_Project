@@ -40,21 +40,23 @@ EmissionView.prototype.renderDropDown = function (data) {
 
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
-  const dropDown = document.createElement('select');
-  const dropDownOption1 = document.createElement('option');
-  const dropDownOption2 = document.createElement('option');
-  const dropDownOption3 = document.createElement('option');
-  const dropDownOption4 = document.createElement('option');
-  dropDownOption1.textContent = "Please Select View";
-  dropDownOption2.textContent = "Yearly Emissions";
-  dropDownOption3.textContent = "Monthly Emissions";
-  dropDownOption4.textContent = "Weekly Emissions";
-  dropDown.appendChild(dropDownOption1);
-  dropDown.appendChild(dropDownOption2);
-  dropDown.appendChild(dropDownOption3);
-  dropDown.appendChild(dropDownOption4);
-  container.appendChild(dropDown);
-  container.addEventListener('change', (event) => {
+  const dropdown = document.createElement('select');
+  const dropdownOption1 = this.createDropdownElement("Please Select View", dropdown);
+  const dropdownOption2 = this.createDropdownElement("Yearly Emissions", dropdown);
+  const dropdownOption3 = this.createDropdownElement("Monthly Emissions", dropdown);
+  const dropdownOption4 = this.createDropdownElement("Weekly Emissions", dropdown);
+  container.appendChild(dropdown);
+  this.listenForDropdownChange(container, data);
+
+};
+EmissionView.prototype.createDropdownElement = function (textContent, container) {
+  const dropDownElement = document.createElement('option');
+  dropDownElement.textContent = textContent;
+  container.appendChild(dropDownElement);
+};
+
+EmissionView.prototype.listenForDropdownChange = function (dropdown, data) {
+  dropdown.addEventListener('change', (event) => {
     if (event.target.value === "Monthly Emissions") {
       return this.renderMonthGraph(data);
     } else if (event.target.value === "Yearly Emissions"){
