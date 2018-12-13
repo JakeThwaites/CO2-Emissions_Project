@@ -80,7 +80,6 @@ input[type='radio']:checked:after {
 
 #page > main {
   grid-area: main;
-
 }
 
 #page > footer {
