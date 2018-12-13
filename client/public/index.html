@@ -12,126 +12,121 @@
 <body>
   <section id="page">
     <header >
-      <h1 align="center">Imprint</h1></header>
-      <nav>
+      <img src="images/image.png" style="float: left"/><img src="images/image2.png" style="float: right"/>
+      <h1 align="center">IMPRINT</h1>
+    </header>
+    <nav>
+      <br>
+      <h3>Transport</h3>
+      <!-- <br> -->
+      <h4>How many miles do you travel?</h4>
+      <form class="form-inline" id="form" method="post">
+        <div class="form-input">
+          <label for="transport">Car (per week):</label>
+          <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport').value
+          = parseFloat(document.getElementById('transport').value)
+          - parseFloat(document.getElementById('transport').step);
+          document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" ></span>
+          <input id="transport" class="input" type="range" name="car" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
+          <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport').value
+          = parseFloat(document.getElementById('transport').value)
+          + parseFloat(document.getElementById('transport').step);
+          document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" > -</span>
+          <span id="dsp" style="color:#2CE90F;font-weight:bold;"></span><br>
+        </div>
         <br>
-        <h3>Transport</h3>
-        <!-- <br> -->
-        <h4>How many miles do you travel?</h4>
-        <form class="form-inline" id="form" method="post">
-          <div class="form-input">
-            <label for="transport">Car (per week):</label>
-            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport').value
-            = parseFloat(document.getElementById('transport').value)
-            - parseFloat(document.getElementById('transport').step);
-            document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" ></span>
-            <input id="transport" class="input" type="range" name="car" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp').innerHTML=this.value;">
-            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport').value
-            = parseFloat(document.getElementById('transport').value)
-            + parseFloat(document.getElementById('transport').step);
-            document.getElementById('dsp').innerHTML=document.getElementById('transport').value;" > -</span>
-            <span id="dsp" style="color:#2CE90F;font-weight:bold;"></span><br>
-          </div>
+        <div class="form-input">
+          <label for="transport">Plane (per year):</label>
+          <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport1').value
+          = parseFloat(document.getElementById('transport1').value)
+          - parseFloat(document.getElementById('transport1').step);
+          document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
+          <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="10000" step="50" value="50" onchange="document.getElementById('dsp2').innerHTML=this.value;">
+          <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport1').value
+          = parseFloat(document.getElementById('transport1').value)
+          + parseFloat(document.getElementById('transport1').step);
+          document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" > -</span>
+          <span id="dsp2" style="color:#2CE90F;font-weight:bold;"></span><br>
+        </div>
+        <br>
+        <div class="form-input">
+          <label for="transport">Bus (per week):</label>
+          <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport2').value
+          = parseFloat(document.getElementById('transport2').value)
+          - parseFloat(document.getElementById('transport2').step);
+          document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
+          <input id="transport2" class="input" type="range" name="bus" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
+          <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport2').value
+          = parseFloat(document.getElementById('transport2').value)
+          + parseFloat(document.getElementById('transport2').step);
+          document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" > -</span>
+          <span id="dsp3" style="color:#2CE90F;font-weight:bold;"></span><br>
+        </div>
+
+        <br>
+
+        <h3>Diet</h3>
+        <div class="form-input">
+          <label for="diet">Which of the following best describes your diet?</label>
+          <select id="diet" class="input" name="diet">
+            <option class="dropdown-menu" style="display:none" selected>Please Select From Below</option>
+            <option class="dropdown-menu" value="50.33">High Meat-Eater (more than 100g per day)</option>
+            <option class="dropdown-menu" value="39.41">Medium Meat-Eater (50 - 100g per day)</option>
+            <option class="dropdown-menu" value="32.69">Low Meat-Eater (less than 100g per day)</option>
+            <option class="dropdown-menu" value="27.37">Fish Eater</option>
+            <option class="dropdown-menu" value="26.67">Vegetarian</option>
+            <option class="dropdown-menu" value="20.23">Vegan</option>
+          </select>
+        </div>
+        <br>
+        <br>
+        <h3>Household</h3>
+        <br>
+        <h4>Electricity</h4>
+        <div class="form-input">
+          <input id="household" class="input" type="radio" name="electricity" value="30.38">
+          <label for="userElectricity">Small Household (3,000kWh)</label>
           <br>
-          <div class="form-input">
-            <label for="transport">Aeroplane (per year):</label>
-            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport1').value
-            = parseFloat(document.getElementById('transport1').value)
-            - parseFloat(document.getElementById('transport1').step);
-            document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" ></span>
-            <input id="transport1" class="input" type="range" name="aeroplane" min="0" max="10000" step="50" value="0" onchange="document.getElementById('dsp2').innerHTML=this.value;">
-            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport1').value
-            = parseFloat(document.getElementById('transport1').value)
-            + parseFloat(document.getElementById('transport1').step);
-            document.getElementById('dsp2').innerHTML=document.getElementById('transport1').value;" > -</span>
-            <span id="dsp2" style="color:#2CE90F;font-weight:bold;"></span><br>
-          </div>
-          <br>
-          <div class="form-input">
-            <label for="transport">Bus (per week):</label>
-            <input type="button" value="-" class="slider-button" onclick="document.getElementById('transport2').value
-            = parseFloat(document.getElementById('transport2').value)
-            - parseFloat(document.getElementById('transport2').step);
-            document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" ></span>
-            <input id="transport2" class="input" type="range" name="bus" min="0" max="500" step="10" value="0" onchange="document.getElementById('dsp3').innerHTML=this.value;">
-            <input type="button" value="+" class="slider-button" onclick="document.getElementById('transport2').value
-            = parseFloat(document.getElementById('transport2').value)
-            + parseFloat(document.getElementById('transport2').step);
-            document.getElementById('dsp3').innerHTML=document.getElementById('transport2').value;" > -</span>
-            <span id="dsp3" style="color:#2CE90F;font-weight:bold;"></span><br>
-          </div>
+          <input id="household" class="input" type="radio" name="electricity" value="48.65">
+          <label for="userElectricity">Medium Household (4,800 kWh)</label>
 
           <br>
-
-              <h3>Diet</h3>
-              <div class="form-input">
-                <label for="diet">Which of the following best describes your diet?</label>
-                <select id="diet" class="input" name="diet">
-                  <option class="dropdown-menu" style="display:none" selected>Please Select From Below</option>
-                  <option class="dropdown-menu" value="50.33">High Meat-Eater (more than 100g per day)</option>
-                  <option class="dropdown-menu" value="39.41">Medium Meat-Eater (50 - 100g per day)</option>
-                  <option class="dropdown-menu" value="32.69">Low Meat-Eater (less than 100g per day)</option>
-                  <option class="dropdown-menu" value="27.37">Fish Eater</option>
-                  <option class="dropdown-menu" value="26.67">Vegetarian</option>
-                  <option class="dropdown-menu" value="20.23">Vegan</option>
-                </select>
-              </div>
+          <input id="household" class="input" type="radio" name="electricity" value="70.96">
+          <label for="userElectricity">Large Household (7,000 kWh):</label>
+        </div>
+        <br>
+        <h4>Gas</h4>
+        <div class="form-input">
+          <input id="household" class="input" type="radio" name="gas" value="46.9">
+          <label for="userGas">Small House (12,000 kWh)</label>
           <br>
+          <input id="household" class="input" type="radio" name="gas" value="70.19">
+          <label for="userGas">Medium House ( 18,000 kWh)</label>
           <br>
-          <h3>Household</h3>
-          <br>
-          <h4>Electricity</h4>
-          <div class="form-input">
-            <input id="household" class="input" type="radio" name="electricity" value="30.38">
-            <label for="userElectricity">Small Household (3,000kWh)</label>
-            <br>
-            <input id="household" class="input" type="radio" name="electricity" value="48.65">
-            <label for="userElectricity">Medium Household (4,800 kWh)</label>
-
-            <br>
-            <input id="household" class="input" type="radio" name="electricity" value="70.96">
-            <label for="userElectricity">Large Household (7,000 kWh):</label>
-          </div>
-           <br>
-          <h4>Gas</h4>
-          <div class="form-input">
-            <input id="household" class="input" type="radio" name="gas" value="46.9">
-            <label for="userGas">Small House (12,000 kWh)</label>
-            <br>
-            <input id="household" class="input" type="radio" name="gas" value="70.19">
-            <label for="userGas">Medium House ( 18,000 kWh)</label>
-            <br>
-            <input id="household" class="input" type="radio" name="gas" value="105.38">
-            <label for="userGas">Large Household (27,000kWh)</label>
-          </div>
-        </form>
-      </nav>
+          <input id="household" class="input" type="radio" name="gas" value="105.38">
+          <label for="userGas">Large Household (27,000kWh)</label>
+        </div>
+      </form>
+    </nav>
     <main>
       <div id="drop-down-container">
-
-      </div>
+    </div>
       <div id="outer-container"></div>
-
-      <div class="content" id="graph-container" style="width:80%; height:350px;">
-
+      <div class="content" id="graph-container" style="width:100%; height:390px;">
       </div>
     </div>
-
     <br>
-
   </form>
 </div>
-
 </main>
- <footer>
-   <div class="info-buttons">
-
-   </div>
-
-   <div class="more-info-view">
-
-   </div>
- </footer>
+<footer>
+  <div class="info-title">
+  </div>
+  <div class="info-buttons">
+  </div>
+  <div class="more-info-view">
+  </div>
+</footer>
 </section>
 </body>
 </html>

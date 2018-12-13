@@ -17,21 +17,28 @@ EmissionView.prototype.bindEvents = function () {
 
 EmissionView.prototype.renderInfoButtons = function () {
   const container = document.querySelector('.info-buttons');
+
+  const headerContainer = document.querySelector('.info-title');
+
   const header = document.createElement('h3');
   header.textContent = "For more information see below";
-  
   const dietButton = document.createElement('button');
   dietButton.setAttribute('id', "diet-info-button");
+  dietButton.setAttribute('class', 'information-button');
   dietButton.textContent = "Diet";
 
   const householdButton = document.createElement('button');
   householdButton.setAttribute('id', "household-info-button");
+  householdButton.setAttribute('class', 'information-button');
   householdButton.textContent = "Household";
 
   const transportButton = document.createElement('button');
   transportButton.setAttribute('id', "transport-info-button");
+  transportButton.setAttribute('class', 'information-button');
   transportButton.textContent = "Transport";
 
+  headerContainer.innerHTML = "";
+  headerContainer.appendChild(header);
   container.innerHTML = "";
   container.appendChild(header);
   container.appendChild(dietButton);
@@ -41,6 +48,7 @@ EmissionView.prototype.renderInfoButtons = function () {
 
 EmissionView.prototype.renderDropDown = function (data) {
   console.log(data);
+
 
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
