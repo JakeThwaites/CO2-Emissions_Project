@@ -17,6 +17,9 @@ EmissionView.prototype.bindEvents = function () {
 
 EmissionView.prototype.renderInfoButtons = function () {
   const container = document.querySelector('.info-buttons');
+  const header = document.createElement('h3');
+  header.textContent = "For more information see below";
+  
   const dietButton = document.createElement('button');
   dietButton.setAttribute('id', "diet-info-button");
   dietButton.textContent = "Diet";
@@ -30,6 +33,7 @@ EmissionView.prototype.renderInfoButtons = function () {
   transportButton.textContent = "Transport";
 
   container.innerHTML = "";
+  container.appendChild(header);
   container.appendChild(dietButton);
   container.appendChild(householdButton);
   container.appendChild(transportButton);
