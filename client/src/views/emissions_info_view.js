@@ -39,25 +39,25 @@ EmissionsInfoView.prototype.listenForDietButton = function (emissionsInstance) {
 
   EmissionsInfoView.prototype.householdEmissionsComparison = function (totalEmissions, comparison) {
     if (totalEmissions.value > comparison) {
-      return "Your household emissions are higher than average. You can reduce the CO2 from your household by "
+      return "Larger households typically have much greater CO2 emissions. Adding solar panels to your roof is a great way to improve your home's emissions. You can also try to choose more energy efficient appliances around your house. More information on reducing your carbon footprint can be found here https://cotap.org/reduce-carbon-footprint/"
     } else {
-      return "Your household emissions are below average. Good job!"
+      return "Smaller houses tend to have lower CO2 emissions than larger ones. Don't forget to turn off lights you're not using and when you leave the room. More information on reducing your carbon footprint can be found here https://cotap.org/reduce-carbon-footprint/ "
     };
   };
 
   EmissionsInfoView.prototype.dietEmissionsComparison = function (totalEmissions, comparison) {
     if (totalEmissions.value > comparison) {
-      return "Your diet emissions are higher than average. Animal agriculture is responsible for roughly 50% of all man-made emissions. The easiest way to lower your CO2 is to lower the amount of meat and animal products you eat. You can find more information on the impact of animal agriculture on the enivornment here "
+      return "Your diet emissions are higher than average. Animal agriculture is responsible for roughly 50% of all man-made emissions. The easiest way to lower your CO2 is to lower the amount of meat and animal products you eat. You can find more information on the impact of animal agriculture on the enivornment here: http://www.greeneatz.com/foods-carbon-footprint.html"
     } else {
-      return "Your diet emissions are below average. Good job!"
+      return "Have a lower meat intake is a great way to reduce your carbon footprint. Animal agriculture is responsible for roughly 50% of all man-made emissions. You can also try to make sure you eat organic, locally sourced foods. More information on the impact of animal agriculture on the enivornment here: http://www.greeneatz.com/foods-carbon-footprint.html"
     };
   };
 
   EmissionsInfoView.prototype.transportEmissionsComparison = function (totalEmissions, comparison) {
     if (totalEmissions.value > comparison) {
-      return "Your transport emissions are higher than average. Stop eating meat!"
+      return "Your transport emissions are higher than average. You could consider making more use of public transport and walking where possible. Electric cars can also greatly reduce your CO2 emissions. More information reducing your carbon footprint can be found here: https://cotap.org/reduce-carbon-footprint/"
     } else {
-      return "Your transport emissions are below average. Good job!"
+      return "Your transport emissions are below average. More information on reducing your emissions further can be found here: https://cotap.org/reduce-carbon-footprint/"
     };
   };
 
