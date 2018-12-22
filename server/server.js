@@ -11,7 +11,7 @@ app.use(express.static(publicPath));
 
 app.use(parser.json());
 
-MongoClient.connect('mongodb://localhost:27017')
+MongoClient.connect('mongodb://heroku_zjczm4bt:7q7fab0bvas7rf07pfhe6enac7@ds241664.mlab.com:41664/heroku_zjczm4bt')
   .then((client) => {
     const db = client.db('co2_input');
     const emissionsCollection = db.collection('emissions');
@@ -20,6 +20,8 @@ MongoClient.connect('mongodb://localhost:27017')
   })
   .catch(console.err);
 
-app.listen(3000, function () {
-  console.log(`Listening on port ${ this.address().port }`);
+const port = process.env.PORT || 3000
+
+app.listen(port, function () {  console.log(`Listening on port ${ port }`);
+
 });
