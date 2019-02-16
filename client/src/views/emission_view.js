@@ -47,9 +47,6 @@ EmissionView.prototype.renderInfoButtons = function () {
 };
 
 EmissionView.prototype.renderDropDown = function (data) {
-  console.log(data);
-
-
   const container = document.querySelector('#drop-down-container');
   container.innerHTML = "";
   const dropdown = document.createElement('select');
@@ -83,48 +80,48 @@ EmissionView.prototype.listenForDropdownChange = function (dropdown, data) {
 
 EmissionView.prototype.renderMonthGraph = function (emissions) {
   const monthContainer = document.querySelector('#graph-container');
-const monthGraph = Highcharts.chart(monthContainer, {
-  chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: 'pie'
-  },
-  title: {
-      text: 'Monthly Carbon Emissions'
-  },
-  tooltip: {
-      pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
-  },
-  plotOptions: {
-      pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-              enabled: true,
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-              style: {
-                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-              }
-          }
-      }
-  },
-  series: [{
-      name: 'Brands',
-      colorByPoint: true,
-      data: [{
-          name: 'Transport',
-          y: (emissions[0].value * 52 / 12), color: 'red',
-          sliced: true,
-          selected: true
-      }, {
-          name: 'Diet',
-          y: (emissions[1].value * 52 / 12), color: 'yellow',
-      }, {
-          name: 'Household',
-          y: (emissions[2].value * 52 / 12), color: 'blue',
-      }]
-  }]
+  const monthGraph = Highcharts.chart(monthContainer, {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Monthly Carbon Emissions'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Transport',
+            y: (emissions[0].value * 52 / 12), color: 'red',
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Diet',
+            y: (emissions[1].value * 52 / 12), color: 'yellow',
+        }, {
+            name: 'Household',
+            y: (emissions[2].value * 52 / 12), color: 'blue',
+        }]
+    }]
 });
   this.container.innerHTML = "";
   this.container.appendChild(monthContainer);
@@ -134,49 +131,49 @@ const monthGraph = Highcharts.chart(monthContainer, {
 
 EmissionView.prototype.renderYearGraph = function (emissions) {
   const yearContainer = document.querySelector('#graph-container');
-const yearGraph = Highcharts.chart(yearContainer, {
-  chart: {
-      plotBackgroundColor: null,
-      plotBorderWidth: null,
-      plotShadow: false,
-      type: 'pie'
-  },
-  title: {
-      text: 'Yearly Carbon Emissions'
-  },
-  tooltip: {
-      pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
-  },
-  plotOptions: {
-      pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-              enabled: true,
-              format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-              style: {
-                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-              }
-          }
-      }
-  },
-  series: [{
-      name: 'Brands',
-      colorByPoint: true,
-      data: [{
-          name: 'Transport',
-          y: (emissions[0].value * 52),
-          sliced: true,
-          selected: true
-      }, {
-          name: 'Diet',
-          y: (emissions[1].value * 52)
-      }, {
-          name: 'Household',
-          y: (emissions[2].value * 52)
-      }]
-  }]
-});
+  const yearGraph = Highcharts.chart(yearContainer, {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Yearly Carbon Emissions'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.y:.1f} kg</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Transport',
+            y: (emissions[0].value * 52),
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Diet',
+            y: (emissions[1].value * 52)
+        }, {
+            name: 'Household',
+            y: (emissions[2].value * 52)
+        }]
+    }]
+  });
 this.container.innerHTML = "";
 this.container.appendChild(yearContainer);
 
@@ -236,5 +233,3 @@ EmissionView.prototype.render = function (emissions) {
 
 
 module.exports = EmissionView;
-
-// [{y: (emissions[0].value * 52), color: 'blue'}, {y: (97 * 52), color: 'red'}, {y: (emissions[1].value * 52), color: 'blue'}, {y: (35 * 52), color: 'red'}, {y: (emissions[2].value * 52), color: 'blue'}, {y: (29 * 52), color: 'red'}]

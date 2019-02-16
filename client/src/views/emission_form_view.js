@@ -3,7 +3,6 @@ const RequestHelper = require('../helpers/request_helper.js');
 
 const EmissionFormView = function (form) {
   this.form = form;
-
 };
 
 EmissionFormView.prototype.bindEvents = function () {
@@ -19,7 +18,6 @@ EmissionFormView.prototype.bindEvents = function () {
     button.addEventListener('click', (event) => {
       const emissionButtonUpdate =
       this.handleChange(event);
-      console.log(emissionButtonUpdate);
       PubSub.publish("EmissionFormView:emissions-updated", emissionButtonUpdate)
     });
   });
